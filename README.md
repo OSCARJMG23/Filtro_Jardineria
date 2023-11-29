@@ -37,6 +37,20 @@
    * Explicacion: Para este metodo empiezo accediendo a los productos, despues en la codicion accedo a la coleccion de detalles pedidos para que con el .Count(), me seleccione los que
      devuelvan un resultado de 0, despues se procede a seleccionar la informacion necesaria para retornarla en un nuevo objeto.
 
+
+  *   Devuelve las oficinas donde no trabajan ninguno de los empleados que 
+      hayan sido los representantes de ventas de algún cliente que haya realizado 
+      la compra de algún producto de la gama Frutales
+      * Ruta: http://localhost:5000/api/Oficina/oficinaNotrabajaempleadofrutales
+      * Codigo:
+        
+      ![image](https://github.com/OSCARJMG23/Filtro_Jardineria/assets/133609079/30854f03-50f0-4889-80f8-27f606900320)
+
+
+
+   * Explicacion: Para este metodo se accede a la entidad de Oficinas y se filtra aquellas donde no exista ningún empleado que cumpla con la condición especificada. La condición incluye la verificación de clientes asociados a esos empleados, pedidos realizados       por esos clientes, y finalmente, productos de la gama "Frutales" presentes en los detalles de esos pedidos.
+     Usé !e.Empleados.Any(...) para asegurar que solo se seleccionen las oficinas donde no haya empleados que cumplan con la condición especificada en la subconsulta.
+
   * Lista las ventas totales de los productos que hayan facturado más de 3000 
     euros. Se mostrará el nombre, unidades vendidas, total facturado y total 
     facturado con impuestos (21% IVA).
